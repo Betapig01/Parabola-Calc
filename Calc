@@ -1,0 +1,154 @@
+import java.util.Scanner;
+/**
+ * A basic parabola caluclator that updates if any variable changes
+ *
+ * @author Ryna Hall
+ * @version 1/29/19
+ */
+
+public class Updating
+{
+    Scanner scan = new Scanner(System.in);
+    
+    public double a2,Ua,Uh,Uc,Ud,Ue,Uk,vertexX,vertexY,point1X,point1Y,point2X,point2Y,point3X,point3Y,a,h,k;
+    String entry, variable;
+    
+    
+    public void numberUpdate(){
+            System.out.println("Which parameter would you like to set? (E)quation/(V)ertex & Point 1");
+            variable = scan.next();
+            if(variable.equals ("E")||variable.equals ("e")){
+             System.out.println("What would you like to make a?");
+             Ua = scan.nextDouble();
+             a=Ua;
+             System.out.println("What would you like to make h?");
+             Uh = scan.nextDouble();
+             h=Uh;
+             System.out.println("What would you like to make k?");
+             Uk = scan.nextDouble();
+             k=Uk;
+             
+             point1X=h+1;
+             point1Y=(a*1)+k;
+             
+             point2X=h+2;
+             point2Y=(a*2)+k;
+             
+             
+             point3X=h+3;
+             point3Y=(a*3)+k;
+            
+             
+            }
+         
+            else if(variable.equals ("V")||variable.equals ("v"))
+            {
+             System.out.println("What would you like to make the x point of the vertex?");
+             vertexX = scan.nextDouble();
+             h = vertexX;
+             System.out.println("What would you like to make the y point of the vertex?");
+             k = scan.nextDouble();
+             
+             System.out.println("What would you like to make the x point of point 1?");
+             point1X = scan.nextDouble();
+             System.out.println("What would you like to make the y point of point 1?");
+             point1Y = scan.nextDouble();
+             
+             a2=point1X-h;
+             //x-h part of equation
+             a2=a2*a2;
+             //squaring x-h
+             point1Y= point1Y + (k*-1);
+             //taking away the opposite of k from both sides
+             a=point1Y/a2;
+             //getting a by itself
+            }
+            
+            
+            
+            
+            System.out.println("The equation is y=" + a + "(x-" + h + ")^2+" + k);
+            System.out.println("The vertex is " + h + "," + k);
+            System.out.println("The parabola goes through these points" + "(" + point1X + "," + point1Y + ") (" + point2X + "," + point2Y + ") (" + point3X + "," + point3Y +  ")");
+            
+            
+            
+            
+            
+            System.out.println("Would you like to change another variable? Y/N");
+            entry = scan.next();
+        while(entry.equals("y")||entry.equals("Y")){
+            System.out.println("Which variable would you like to change? A/H/K/(P)oint 1");
+            entry = scan.next();
+            if (entry.equals("a")||entry.equals("A")){
+                System.out.println("What would you like to make a?");
+                a = scan.nextDouble();
+                point1X=h+1;
+                point1Y=(a*1)+k;
+             
+                point2X=h+2;
+                point2Y=(a*2)+k;
+             
+             
+                point3X=h+3;
+                point3Y=(a*3)+k;
+            }
+            else if (entry.equals("h")||entry.equals("H")){
+                System.out.println("What would you like to make h?");
+                h = scan.nextDouble();
+                point1X=h+1;
+                point1Y=(a*1)+k;
+             
+                point2X=h+2;
+                point2Y=(a*2)+k;
+             
+             
+                point3X=h+3;
+                point3Y=(a*3)+k;
+            }
+            else if (entry.equals("k")||entry.equals("K")){
+                System.out.println("What would you like to make k?");
+                k = scan.nextDouble();
+                
+                point1X=h+1;
+                point1Y=(a*1)+k;
+             
+                point2X=h+2;
+                point2Y=(a*2)+k;
+             
+             
+                point3X=h+3;
+                point3Y=(a*3)+k;
+            }
+            else if (entry.equals("p")||entry.equals("P")){
+                System.out.println("What would you like to make x of point 1?");
+                point1X = scan.nextDouble();
+                System.out.println("What would you like to make y of point 1?");
+                point1Y = scan.nextDouble();
+                a2=point1X-h;
+                //x-h part of equation
+                a2=a2*a2;
+                //squaring x-h
+                point1Y= point1Y + (k*-1);
+                //taking away the opposite of k from both sides
+                a=point1Y/a2;
+                //getting a by itself
+                point1X=h+1;
+                point1Y=(a*1)+k;
+             
+                point2X=h+2;
+                point2Y=(a*2)+k;
+             
+             
+                point3X=h+3;
+                point3Y=(a*3)+k;
+            }
+            System.out.println("The equation is y=" + a + "(x-" + h + ")^2+" + k);
+            System.out.println("The vertex is " + h + "," + k);
+            System.out.println("The parabola goes through these points" + "(" + point1X + "," + point1Y + ") (" + point2X + "," + point2Y + ") (" + point3X + "," + point3Y +  ")");
+            
+            System.out.println("Would you like to change another variable? Y/N");
+            entry = scan.next();
+        }
+    }
+}
